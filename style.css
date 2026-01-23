@@ -4,7 +4,7 @@
 :root {
   --color-primary: #2563EB;
   --color-primary-dark: #1E40AF;
-  --color-background: #F9FAFB;
+  --color-background: #F3F4F6;
   --color-card: #FFFFFF;
   --color-text: #111827;
   --color-muted: #6B7280;
@@ -20,7 +20,7 @@ body {
   margin: 60px auto;
   padding: 0 20px;
   line-height: 1.6;
-  background-color: red;
+  background-color: var(--color-background);
   color: var(--color-text);
 }
 
