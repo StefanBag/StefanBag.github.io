@@ -20,7 +20,7 @@ body {
   margin: 60px auto;
   padding: 0 20px;
   line-height: 1.6;
-  background-color: var(--color-background);
+  background-color: red;
   color: var(--color-text);
 }
 
