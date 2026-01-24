@@ -1,3 +1,6 @@
+/* =========================
+   Reset & Base
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -12,15 +15,16 @@ body {
   min-height: 100vh;
 }
 
-/* Navigation */
+/* =========================
+   Navigation (SOLID)
+========================= */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #1f2937; /* dark slate */
-  padding: 0.75rem 0;
+  background: #1f2937; /* solid dark slate */
+  padding: 0.6rem 0;
   z-index: 1000;
-  border-bottom: none;
 }
 
 nav .container {
@@ -50,56 +54,65 @@ nav a {
 }
 
 nav a:hover {
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
-/* Hero */
+/* =========================
+   Hero Section
+========================= */
 .hero {
   min-height: 100vh;
+  padding: 7rem 2rem 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+}
+
+.hero-content {
+  max-width: 720px;
 }
 
 .hero-content h1 {
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(3rem, 7vw, 4.5rem);
   font-weight: 800;
   margin-bottom: 1rem;
 }
 
 .subtitle {
   font-size: 1.4rem;
-  margin-bottom: 2rem;
   opacity: 0.9;
+  margin-bottom: 1.5rem;
 }
 
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
   justify-content: center;
-  margin: 2rem auto;
+  gap: 0.75rem;
+  margin: 2rem 0;
 }
 
 .skill-tag {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.6rem 1.2rem;
-  border-radius: 25px;
-  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
 }
 
-/* Buttons */
+/* =========================
+   Buttons
+========================= */
 .cta-buttons {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .btn {
-  padding: 1rem 2rem;
-  border-radius: 30px;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
 }
@@ -114,10 +127,12 @@ nav a:hover {
   color: #fff;
 }
 
-/* Projects */
+/* =========================
+   Projects Section
+========================= */
 .projects-section {
   background: #f8f9fa;
-  color: #333;
+  color: #1f2937;
   padding: 6rem 2rem;
 }
 
@@ -128,72 +143,149 @@ nav a:hover {
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
+  font-weight: 700;
   color: #667eea;
   margin-bottom: 3rem;
 }
 
+/* =========================
+   Carousel (Scroll Snap)
+========================= */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 360px);
   gap: 2rem;
+
+  overflow-x: auto;
+  padding-bottom: 1rem;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
+.projects-grid::-webkit-scrollbar {
+  display: none;
+}
+.projects-grid {
+  scrollbar-width: none;
+}
+
+/* =========================
+   Project Card
+========================= */
 .project-card {
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  scroll-snap-align: start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
 }
 
 .project-image {
   width: 100%;
-  height: 250px;
+  height: 220px;
   object-fit: cover;
   display: block;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
 }
 
 .project-content {
-  padding: 2rem;
+  padding: 1.75rem;
 }
 
+.project-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 1.25rem;
+}
+
+/* =========================
+   Tech Stack Pills
+========================= */
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .tech-tag {
-  background: #edf2f7;
-  color: #667eea;
-  padding: 0.4rem 0.9rem;
-  border-radius: 15px;
-  font-size: 0.85rem;
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
-/* Contact */
+/* =========================
+   Project Link
+========================= */
+.project-link {
+  font-weight: 600;
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Contact Section
+========================= */
 .contact-section {
   background: linear-gradient(135deg, #667eea, #764ba2);
   padding: 6rem 2rem;
   text-align: center;
 }
 
+.contact-section h2 {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+
 .contact-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   justify-content: center;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
 }
 
 .contact-item {
-  background: rgba(255,255,255,0.2);
-  padding: 1.5rem 2rem;
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 1.25rem 1.75rem;
+  border-radius: 14px;
 }
 
 .contact-item a {
   color: #fff;
   text-decoration: none;
+  font-weight: 600;
+}
+
+/* =========================
+   Mobile Tweaks
+========================= */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1.25rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
 }
