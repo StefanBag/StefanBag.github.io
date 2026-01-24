@@ -145,3 +145,32 @@ a:hover {
 .contact p {
   margin: 0.5rem 0;
 }
+/* ================================
+   Section Layout & Color Blocks
+================================ */
+.section {
+  padding: 4rem 2rem;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/* HERO SECTION */
+.hero {
+  background-color: var(--color-background);
+}
+
+/* WHAT I DO SECTION */
+.what-i-do {
+  background-color: #ffffff;
+}
+
+/* PROJECTS SECTION */
+.projects-section {
+  background-color: #EEF2FF; /* subtle blue tint */
+}
+
+/* CONTACT SECTION */
+.contact {
+  background-color: #ffffff;
+}
+
