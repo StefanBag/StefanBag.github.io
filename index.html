@@ -24,11 +24,12 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
       <h1>Stefan Baggieri</h1>
       <p class="subtitle">Game Developer & Computer Science Student</p>
+
       <p>
         Fourth-year Honours CS student at Western University, specializing in game development.
         I build engaging experiences through clean systems and creative problem-solving.
@@ -50,100 +51,86 @@
     </div>
   </section>
 
-<!-- Projects Section -->
-<section class="projects-section" id="projects">
-  <div class="container">
-    <h2 class="section-title">Featured Projects</h2>
+  <!-- Projects -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
 
-    <div class="projects-wrapper">
-      <div class="projects-grid">
+      <!-- Carousel Wrapper -->
+      <div class="projects-wrapper" id="projectsCarousel">
+        <div class="projects-grid">
 
-        <!-- REAL PROJECTS -->
-        <div class="project-card">
-          <img class="project-image" src="images/KrazyKitchenVRGameplay.png" alt="Krazy Kitchen">
-          <div class="project-content">
-            <h3>Krazy Kitchen</h3>
-            <p>VR cooking game set in an intentionally chaotic kitchen.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Unity</span>
-              <span class="tech-tag">C#</span>
-              <span class="tech-tag">VR</span>
+          <!-- Krazy Kitchen -->
+          <div class="project-card">
+            <img src="images/KrazyKitchenVRGameplay.png" class="project-image" alt="Krazy Kitchen VR gameplay">
+            <div class="project-content">
+              <h3>Krazy Kitchen</h3>
+              <p>VR cooking game set in an intentionally chaotic kitchen.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Unity</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">VR</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img class="project-image" src="images/ZombieGameImage.png" alt="3D Zombies Game">
-          <div class="project-content">
-            <h3>3D Zombies Game</h3>
-            <p>Round-based survival with perks, mystery box, and upgrades.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Unity</span>
-              <span class="tech-tag">C#</span>
+          <!-- Zombies -->
+          <div class="project-card">
+            <img src="images/ZombieGameImage.png" class="project-image" alt="3D Zombies Game">
+            <div class="project-content">
+              <h3>3D Zombies Game</h3>
+              <p>Round-based survival with perks, mystery box, and upgrades.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Unity</span>
+                <span class="tech-tag">C#</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img class="project-image" src="images/GeoCraftImage.png" alt="GeoCraft">
-          <div class="project-content">
-            <h3>GeoCraft</h3>
-            <p>Educational geography game for kids.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Game Design</span>
-              <span class="tech-tag">Education</span>
+          <!-- GeoCraft -->
+          <div class="project-card">
+            <img src="images/GeoCraftImage.png" class="project-image" alt="GeoCraft">
+            <div class="project-content">
+              <h3>GeoCraft</h3>
+              <p>Educational geography game for kids.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Game Design</span>
+                <span class="tech-tag">Education</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- FAKE / PLACEHOLDER PROJECTS -->
-        <div class="project-card">
-          <img class="project-image" src="https://via.placeholder.com/600x400" alt="">
-          <div class="project-content">
-            <h3>Prototype AI Game</h3>
-            <p>Experimental gameplay mechanics using AI-driven systems.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">C++</span>
-              <span class="tech-tag">AI</span>
+          <!-- Extra cards (for looping demo) -->
+          <div class="project-card">
+            <img src="https://via.placeholder.com/600x400" class="project-image" alt="">
+            <div class="project-content">
+              <h3>Prototype AI Game</h3>
+              <p>Experimental AI-driven gameplay systems.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">AI</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img class="project-image" src="https://via.placeholder.com/600x400" alt="">
-          <div class="project-content">
-            <h3>Physics Sandbox</h3>
-            <p>Small physics-based sandbox for testing mechanics.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Unity</span>
-              <span class="tech-tag">Physics</span>
+          <div class="project-card">
+            <img src="https://via.placeholder.com/600x400" class="project-image" alt="">
+            <div class="project-content">
+              <h3>Physics Sandbox</h3>
+              <p>Physics-based mechanics testing environment.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Unity</span>
+                <span class="tech-tag">Physics</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img class="project-image" src="https://via.placeholder.com/600x400" alt="">
-          <div class="project-content">
-            <h3>Automation Tool</h3>
-            <p>Internal automation script to streamline workflows.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Automation</span>
-            </div>
-          </div>
         </div>
-
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-
-
-
-
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section class="contact-section" id="contact">
     <div class="container">
       <h2>Let's Connect</h2>
@@ -163,5 +150,6 @@
     </div>
   </section>
 
+  <script src="script.js"></script>
 </body>
 </html>
