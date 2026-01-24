@@ -22,7 +22,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #1f2937; /* solid */
+  background: #1f2937; /* solid dark */
   padding: 0.75rem 0;
   z-index: 1000;
 }
@@ -58,7 +58,7 @@ nav a:hover {
 }
 
 /* =====================
-   Hero
+   Hero Section
 ===================== */
 .hero {
   min-height: 100vh;
@@ -141,7 +141,24 @@ nav a:hover {
   text-align: center;
   font-size: 2.5rem;
   color: #667eea;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* =====================
+   Scroll Hint
+===================== */
+.scroll-hint {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #667eea;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }
 
 /* =====================
@@ -149,16 +166,20 @@ nav a:hover {
 ===================== */
 .projects-wrapper {
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
 }
 
-/* Hide scrollbar */
 .projects-wrapper::-webkit-scrollbar {
   display: none;
-}
-.projects-wrapper {
-  scrollbar-width: none;
 }
 
 /* =====================
@@ -176,6 +197,7 @@ nav a:hover {
 .project-card {
   min-width: 340px;
   max-width: 340px;
+  flex-shrink: 0; /* 🚨 REQUIRED FOR INFINITE LOOP */
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
