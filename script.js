@@ -4,26 +4,27 @@ const wrapper = document.querySelector(".projects-wrapper");
 const grid = document.querySelector(".projects-grid");
 
 if (wrapper && grid) {
-  // Duplicate all project cards
+  // Duplicate all project cards ONCE
   const cards = Array.from(grid.children);
   cards.forEach(card => {
     const clone = card.cloneNode(true);
     grid.appendChild(clone);
   });
 
-  // Set initial scroll position to the start
+  // Width of the original set
   const totalWidth = grid.scrollWidth / 2;
-  wrapper.scrollLeft = 0;
+
+  // Start in the middle for true infinite feel
+  wrapper.scrollLeft = totalWidth / 2;
 
   wrapper.addEventListener("scroll", () => {
-    // If user scrolls past the duplicated midpoint, reset
+    // Scroll forward past end → jump back
     if (wrapper.scrollLeft >= totalWidth) {
-      wrapper.scrollLeft = 0;
+      wrapper.scrollLeft -= totalWidth;
     }
-
-    // If user scrolls backwards past start, jump forward
-    if (wrapper.scrollLeft <= 0) {
-      wrapper.scrollLeft = totalWidth;
+    // Scroll backward past start → jump forward
+    else if (wrapper.scrollLeft <= 0) {
+      wrapper.scrollLeft += totalWidth;
     }
   });
 }
