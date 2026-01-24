@@ -31,12 +31,20 @@ if (wrapper && track && !track.dataset.looped) {
     "wheel",
     (e) => {
       e.preventDefault();
-      scrollAccumulator += e.deltaY;
+      
+      // Use deltaX for horizontal scrolling (trackpad left/right)
+      // Use deltaY for vertical scrolling converted to horizontal
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      
+      scrollAccumulator += delta;
 
+      // Scroll RIGHT (positive delta) → move cards LEFT (index++)
       if (scrollAccumulator > scrollThreshold) {
         index++;
         scrollAccumulator = 0;
-      } else if (scrollAccumulator < -scrollThreshold) {
+      } 
+      // Scroll LEFT (negative delta) → move cards RIGHT (index--)
+      else if (scrollAccumulator < -scrollThreshold) {
         index--;
         scrollAccumulator = 0;
       }
