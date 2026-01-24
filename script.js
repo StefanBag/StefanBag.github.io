@@ -1,42 +1,42 @@
-// Infinite horizontal carousel logic
+// True infinite horizontal carousel (stable both directions)
 
 const wrapper = document.querySelector(".projects-wrapper");
 const grid = document.querySelector(".projects-grid");
 
 if (wrapper && grid) {
-  const originalCards = Array.from(grid.children);
+  const originals = Array.from(grid.children);
 
-  // Clone BEFORE and AFTER
-  originalCards.forEach(card => {
+  // Clone before and after (3 total sets)
+  originals.forEach(card => {
     grid.appendChild(card.cloneNode(true));
   });
-  originalCards.forEach(card => {
+  originals.forEach(card => {
     grid.insertBefore(card.cloneNode(true), grid.firstChild);
   });
 
-  const singleSetWidth = grid.scrollWidth / 3;
+  // Width of ONE set
+  const setWidth = grid.scrollWidth / 3;
 
   // Start in the middle set
-  wrapper.scrollLeft = singleSetWidth;
+  wrapper.scrollLeft = setWidth;
 
   let isResetting = false;
+  const buffer = 50;
 
   wrapper.addEventListener("scroll", () => {
     if (isResetting) return;
 
-    const buffer = 20;
-
-    // Too far right → jump back to middle
-    if (wrapper.scrollLeft >= singleSetWidth * 2 - buffer) {
+    // Too far right → jump left
+    if (wrapper.scrollLeft >= setWidth * 2 - buffer) {
       isResetting = true;
-      wrapper.scrollLeft -= singleSetWidth;
+      wrapper.scrollLeft -= setWidth;
       requestAnimationFrame(() => (isResetting = false));
     }
 
-    // Too far left → jump forward to middle
+    // Too far left → jump right
     else if (wrapper.scrollLeft <= buffer) {
       isResetting = true;
-      wrapper.scrollLeft += singleSetWidth;
+      wrapper.scrollLeft += setWidth;
       requestAnimationFrame(() => (isResetting = false));
     }
   });
