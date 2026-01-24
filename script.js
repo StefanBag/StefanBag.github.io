@@ -1,5 +1,6 @@
 // ================================
 // Infinite Carousel — HARD SNAP PER CARD
+// Horizontal scroll ONLY
 // ================================
 
 const wrapper = document.querySelector(".projects-wrapper");
@@ -21,7 +22,7 @@ if (wrapper && track && !track.dataset.looped) {
   let position = 0;
   let targetPosition = 0;
 
-  const snapSpeed = 0.35; // ↑ higher = snappier
+  const snapSpeed = 0.35;
   const scrollThreshold = 60;
   let scrollAccumulator = 0;
 
@@ -30,20 +31,20 @@ if (wrapper && track && !track.dataset.looped) {
   wrapper.addEventListener(
     "wheel",
     (e) => {
-      e.preventDefault();
-      
-      // Use deltaX for horizontal scrolling (trackpad left/right)
-      // Use deltaY for vertical scrolling converted to horizontal
-      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      
-      scrollAccumulator += delta;
+      // ❌ Ignore vertical scroll completely
+      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
 
-      // Scroll RIGHT (positive delta) → move cards LEFT (index++)
+      e.preventDefault();
+
+      // ✅ Horizontal scroll only
+      scrollAccumulator += e.deltaX;
+
+      // Scroll RIGHT → next card
       if (scrollAccumulator > scrollThreshold) {
         index++;
         scrollAccumulator = 0;
-      } 
-      // Scroll LEFT (negative delta) → move cards RIGHT (index--)
+      }
+      // Scroll LEFT → previous card
       else if (scrollAccumulator < -scrollThreshold) {
         index--;
         scrollAccumulator = 0;
@@ -59,10 +60,8 @@ if (wrapper && track && !track.dataset.looped) {
   );
 
   function animate() {
-    // Fast snap (spring-like, not floaty)
     position += (targetPosition - position) * snapSpeed;
 
-    // Kill micro jitter
     if (Math.abs(targetPosition - position) < 0.5) {
       position = targetPosition;
     }
