@@ -1,5 +1,5 @@
 // ================================
-// TRUE Infinite Carousel (TIGHT CONTROL)
+// TRUE Infinite Carousel (SNAP PER CARD)
 // ================================
 const wrapper = document.querySelector(".projects-wrapper");
 const track = document.querySelector(".projects-grid");
@@ -14,56 +14,50 @@ if (wrapper && track && !track.dataset.looped) {
     track.appendChild(card.cloneNode(true));
   });
   
-  let position = 0;
-  let velocity = 0;
-  const friction = 0.85; // Higher = tighter control (was 0.9)
-  const sensitivity = 1.2; // Higher = more responsive
-  const snapStrength = 0.15; // Pulls toward resting position
+  let currentIndex = 0;
+  let targetIndex = 0;
   const loopWidth = cardWidth * cardCount;
   
   wrapper.style.overflow = "hidden";
   
-  let isScrolling = false;
-  let scrollTimeout;
+  let scrollAccumulator = 0;
+  const scrollThreshold = 50; // pixels needed to trigger next card
   
   wrapper.addEventListener(
     "wheel",
     (e) => {
       e.preventDefault();
       
-      // Direct position change for immediate response
-      velocity = e.deltaY * sensitivity;
+      scrollAccumulator += e.deltaY;
       
-      isScrolling = true;
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-      }, 150);
+      // Move forward one card
+      if (scrollAccumulator > scrollThreshold) {
+        targetIndex++;
+        scrollAccumulator = 0;
+      }
+      // Move backward one card
+      else if (scrollAccumulator < -scrollThreshold) {
+        targetIndex--;
+        scrollAccumulator = 0;
+      }
     },
     { passive: false }
   );
   
   function animate() {
-    // Apply velocity decay
-    if (Math.abs(velocity) > 0.1) {
-      position += velocity;
-      velocity *= friction;
-    } else {
-      velocity = 0;
-    }
+    // Smooth interpolation to target
+    const diff = targetIndex - currentIndex;
+    currentIndex += diff * 0.15; // Smooth easing (0.15 = speed)
     
-    // Snap to cards when stopped (optional - remove if you don't want snapping)
-    if (!isScrolling && Math.abs(velocity) < 0.5) {
-      const nearestCard = Math.round(position / cardWidth) * cardWidth;
-      const diff = nearestCard - position;
-      position += diff * snapStrength;
-    }
+    let position = currentIndex * cardWidth;
     
-    // Hard wrap — symmetric both directions
-    if (position >= loopWidth) {
-      position -= loopWidth;
-    } else if (position <= 0) {
-      position += loopWidth;
+    // Handle looping by wrapping target and current indices
+    if (targetIndex >= cardCount) {
+      targetIndex -= cardCount;
+      currentIndex -= cardCount;
+    } else if (targetIndex < 0) {
+      targetIndex += cardCount;
+      currentIndex += cardCount;
     }
     
     track.style.transform = `translateX(${-position}px)`;
