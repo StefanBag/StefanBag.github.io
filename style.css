@@ -1,176 +1,291 @@
-/* ================================
-   Global Theme Variables
-================================ */
-:root {
-  --color-primary: #2563EB;
-  --color-primary-dark: #1E40AF;
-  --color-background: #F3F4F6;
-  --color-card: #FFFFFF;
-  --color-text: #111827;
-  --color-muted: #6B7280;
-  --color-border: #E5E7EB;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ================================
-   Base Layout & Typography
-================================ */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
   line-height: 1.6;
-  background-color: var(--color-background);
-  color: var(--color-text);
+  min-height: 100vh;
 }
 
-h1 {
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.7;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content .subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 2rem auto;
+  max-width: 700px;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #667eea;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Projects Section */
+.projects-section {
+  background: #f8f9fa;
+  color: #333;
+  padding: 6rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
   font-size: 2.5rem;
-  margin-bottom: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #667eea;
 }
 
-h2 {
-  margin-top: 4rem;
-  color: var(--color-primary-dark);
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
 }
 
-p {
-  color: var(--color-muted);
+.project-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
-a {
-  color: var(--color-primary);
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.project-content {
+  padding: 2rem;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.project-card p {
+  color: #718096;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  background: #edf2f7;
+  color: #667eea;
+  padding: 0.4rem 0.9rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.project-link {
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Contact Section */
+.contact-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+.contact-item a {
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
 }
 
-a:hover {
-  color: var(--color-primary-dark);
-}
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1rem;
+  }
 
-/* ================================
-   Projects Grid
-================================ */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  margin-top: 2rem;
-}
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 
-/* ================================
-   Project Cards
-================================ */
-.project-card {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-top: 4px solid var(--color-primary);
-  border-radius: 14px;
-  padding: 2rem;
-  min-height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  .cta-buttons {
+    flex-direction: column;
+  }
 }
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
-}
-
-.project-card h3 {
-  font-size: 1.35rem;
-  margin-bottom: 0.75rem;
-  color: var(--color-primary-dark);
-}
-
-/* ================================
-   Project Images
-================================ */
-.project-card img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-/* ================================
-   Project Description
-================================ */
-.project-card p {
-  font-size: 0.95rem;
-  color: var(--color-muted);
-}
-
-/* ================================
-   Tech Stack Chips
-================================ */
-.tech-stack {
-  margin-top: 1rem;
-}
-
-.tech-stack span {
-  display: inline-block;
-  background-color: #EEF2FF;
-  color: var(--color-primary-dark);
-  font-size: 0.8rem;
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
-/* ================================
-   Project Links / Actions
-================================ */
-.project-links {
-  margin-top: 1.25rem;
-}
-
-.project-links a {
-  margin-right: 1.25rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.project-links a:hover {
-  text-decoration: underline;
-}
-
-/* ================================
-   Contact Section
-================================ */
-.contact p {
-  margin: 0.5rem 0;
-}
-/* ================================
-   Section Layout & Color Blocks
-================================ */
-.section {
-  padding: 4rem 2rem;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-}
-
-/* HERO SECTION */
-.hero {
-  background-color: var(--color-background);
-}
-
-/* WHAT I DO SECTION */
-.what-i-do {
-  background-color: #ffffff;
-}
-
-/* PROJECTS SECTION */
-.projects-section {
-  background-color: #EEF2FF; /* subtle blue tint */
-}
-
-/* CONTACT SECTION */
-.contact {
-  background-color: #ffffff;
-}
-
