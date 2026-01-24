@@ -1,33 +1,45 @@
-// Bulletproof infinite horizontal carousel
+// TRUE infinite horizontal carousel (no walls, no jitter)
 
 const wrapper = document.querySelector(".projects-wrapper");
 const grid = document.querySelector(".projects-grid");
 
 if (wrapper && grid) {
-  const originals = Array.from(grid.children);
+  const originalCards = Array.from(grid.children);
 
-  // Duplicate once (2 sets total)
-  originals.forEach(card => {
+  // 1️⃣ Clone before
+  originalCards.forEach(card => {
+    grid.insertBefore(card.cloneNode(true), grid.firstChild);
+  });
+
+  // 2️⃣ Clone after
+  originalCards.forEach(card => {
     grid.appendChild(card.cloneNode(true));
   });
 
-  let setWidth;
+  // 3️⃣ Width of ONE full set
+  const setWidth = grid.scrollWidth / 3;
 
-  function recalc() {
-    setWidth = grid.scrollWidth / 2;
-    wrapper.scrollLeft = setWidth / 2;
-  }
+  // 4️⃣ Start dead-center (IMPORTANT)
+  wrapper.scrollLeft = setWidth;
 
-  // Recalculate after images load
-  window.addEventListener("load", recalc);
-  window.addEventListener("resize", recalc);
+  let isJumping = false;
+  const buffer = 100; // safety zone
 
   wrapper.addEventListener("scroll", () => {
-    // Wrap seamlessly using modulo
-    if (wrapper.scrollLeft >= setWidth) {
-      wrapper.scrollLeft -= setWidth;
-    } else if (wrapper.scrollLeft < 0) {
+    if (isJumping) return;
+
+    // 🚫 NEVER let browser hit 0
+    if (wrapper.scrollLeft <= buffer) {
+      isJumping = true;
       wrapper.scrollLeft += setWidth;
+      requestAnimationFrame(() => (isJumping = false));
+    }
+
+    // 🚫 NEVER let browser hit max
+    else if (wrapper.scrollLeft >= setWidth * 2 - buffer) {
+      isJumping = true;
+      wrapper.scrollLeft -= setWidth;
+      requestAnimationFrame(() => (isJumping = false));
     }
   });
 }
