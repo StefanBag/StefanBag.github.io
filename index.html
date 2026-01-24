@@ -3,136 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Stefan Baggieri | Game Developer</title>
-
   <meta name="description" content="Fourth-year Honours Computer Science student with a minor in Game Development, building games and automation tools." />
   <meta name="robots" content="index, follow" />
-
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="logo">SB</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <!-- HERO -->
-  <section class="section hero">
-  <h1>Hi, I’m Stefan 👋</h1>
-
-  <p>
-    Fourth-year Honours Computer Science student · Game Development minor · Western University
-  </p>
-
-  <p>
-    I design engaging games and build efficient automation scripts, with a focus on clean systems,
-    problem-solving, and user experience.
-  </p>
-
-  <p>
-    <strong>Skills:</strong>
-    C++, C#, Unity, VR Development, HTML, CSS, JavaScript, Git, Automation Scripting
-  </p>
-</section>
-
-
-  <!-- WHAT I DO -->
-  <section class="section what-i-do">
-  <h2>What I Do</h2>
-  <ul>
-    <li>Game development (Unity, VR, gameplay systems)</li>
-    <li>Interactive and educational game design</li>
-    <li>Automation scripts and small tools</li>
-  </ul>
-</section>
-
-
-  <!-- PROJECTS -->
-  <section class="section projects-section">
-  <h2>Projects</h2>
-
-  <div class="projects">
-
-    <!-- PROJECT 1 -->
-    <div class="project-card">
-      <h3>Krazy Kitchen</h3>
-
-      <img src="https://via.placeholder.com/600x350" alt="Krazy Kitchen VR gameplay">
-
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Stefan Baggieri</h1>
+      <p class="subtitle">Game Developer & Computer Science Student</p>
       <p>
-        A VR cooking game where players must complete tasks in an intentionally inefficient kitchen,
-        emphasizing coordination, adaptability, and problem-solving.
+        Fourth-year Honours CS student at Western University, specializing in game development.
+        I build engaging experiences through clean systems and creative problem-solving.
       </p>
-
-      <div class="tech-stack">
-        <span>Unity</span>
-        <span>C#</span>
-        <span>VR</span>
+      
+      <div class="skills">
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">Unity</span>
+        <span class="skill-tag">VR Development</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Git</span>
       </div>
 
-      <div class="project-links">
-        <a href="#" target="_blank">View Code</a>
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
       </div>
     </div>
+  </section>
 
-    <!-- PROJECT 2 -->
-    <div class="project-card">
-      <h3>3D Zombies Game</h3>
+  <!-- Projects Section -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image">🍳</div>
+          <div class="project-content">
+            <h3>Krazy Kitchen</h3>
+            <p>
+              A VR cooking game where players navigate an intentionally chaotic kitchen,
+              emphasizing coordination, adaptability, and creative problem-solving under pressure.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Unity</span>
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">VR</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
 
-      <div class="project-images">
-        <img src="images/ZombieGameImage.png" alt="Zombie gameplay">
-        <img src="images/MysteryBoxImage.png" alt="Mystery box system">
-        <img src="images/PackaPunchImage.png" alt="Pack-a-Punch machine">
-      </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image">🧟</div>
+          <div class="project-content">
+            <h3>3D Zombies Game</h3>
+            <p>
+              Round-based zombie survival featuring perks, mystery box mechanics, and a 
+              Pack-a-Punch upgrade system. Survive as long as you can against endless waves.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Unity</span>
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">Game Systems</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
 
-      <p>
-        A round-based zombie survival game that challenges players to survive as long as possible,
-        featuring perks, a mystery box, and a Pack-a-Punch upgrade system.
-      </p>
-
-      <div class="tech-stack">
-        <span>Unity</span>
-        <span>C#</span>
-        <span>Gameplay Systems</span>
-      </div>
-
-      <div class="project-links">
-        <a href="#" target="_blank">View Code</a>
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image">🌍</div>
+          <div class="project-content">
+            <h3>GeoCraft</h3>
+            <p>
+              An educational geography game designed for children to learn about countries 
+              through interactive gameplay and visual feedback systems.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Game Design</span>
+              <span class="tech-tag">Education</span>
+              <span class="tech-tag">UX</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- PROJECT 3 -->
-    <div class="project-card">
-      <h3>GeoCraft</h3>
-
-      <img src="https://via.placeholder.com/600x350" alt="GeoCraft geography game">
-
-      <p>
-        An educational country-guessing game designed to help children learn geography through
-        interactive play and visual feedback.
-      </p>
-
-      <div class="tech-stack">
-        <span>Game Design</span>
-        <span>Education</span>
-        <span>Interaction Design</span>
-      </div>
-
-      <div class="project-links">
-        <a href="#" target="_blank">View Code</a>
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2>Let's Connect</h2>
+      <p>Interested in collaborating or want to chat about game development?</p>
+      
+      <div class="contact-links">
+        <div class="contact-item">
+          <a href="mailto:Stefan.Baggieri@gmail.com">📧 Email</a>
+        </div>
+        <div class="contact-item">
+          <a href="https://github.com/StefanBag" target="_blank">💻 GitHub</a>
+        </div>
+        <div class="contact-item">
+          <a href="https://www.linkedin.com/in/stefan-baggieri-9b897826b/" target="_blank">💼 LinkedIn</a>
+        </div>
       </div>
     </div>
-
-  </div>
-</section>
-
-  <!-- CONTACT -->
-  <section class="section contact">
-  <h2>Contact</h2>
-
-  <p>Email: <a href="mailto:Stefan.Baggieri@gmail.com">Stefan.Baggieri@gmail.com</a></p>
-  <p>GitHub: <a href="https://github.com/StefanBag" target="_blank">github.com/StefanBag</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/stefan-baggieri-9b897826b/" target="_blank">LinkedIn</a></p>
-</section>
-
-
+  </section>
 </body>
 </html>
