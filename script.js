@@ -22,7 +22,7 @@ if (wrapper && track && !track.dataset.looped) {
   let position = 0;
   let targetPosition = 0;
 
-  const snapSpeed = 0.35;
+  const snapSpeed = 0.50;
   const scrollThreshold = 80;
   let scrollAccumulator = 0;
 
