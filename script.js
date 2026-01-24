@@ -4,34 +4,39 @@ const wrapper = document.querySelector(".projects-wrapper");
 const grid = document.querySelector(".projects-grid");
 
 if (wrapper && grid) {
-  // Duplicate all project cards ONCE
-  const cards = Array.from(grid.children);
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    grid.appendChild(clone);
+  const originalCards = Array.from(grid.children);
+
+  // Clone BEFORE and AFTER
+  originalCards.forEach(card => {
+    grid.appendChild(card.cloneNode(true));
+  });
+  originalCards.forEach(card => {
+    grid.insertBefore(card.cloneNode(true), grid.firstChild);
   });
 
-  // Width of the original set
-  const totalWidth = grid.scrollWidth / 2;
+  const singleSetWidth = grid.scrollWidth / 3;
 
-  // Start at the seam between original + clone
-  wrapper.scrollLeft = totalWidth;
+  // Start in the middle set
+  wrapper.scrollLeft = singleSetWidth;
 
   let isResetting = false;
 
   wrapper.addEventListener("scroll", () => {
     if (isResetting) return;
 
-    const buffer = 10; // px safety zone
+    const buffer = 20;
 
-    if (wrapper.scrollLeft >= totalWidth * 2 - buffer) {
+    // Too far right → jump back to middle
+    if (wrapper.scrollLeft >= singleSetWidth * 2 - buffer) {
       isResetting = true;
-      wrapper.scrollLeft -= totalWidth;
+      wrapper.scrollLeft -= singleSetWidth;
       requestAnimationFrame(() => (isResetting = false));
-    } 
+    }
+
+    // Too far left → jump forward to middle
     else if (wrapper.scrollLeft <= buffer) {
       isResetting = true;
-      wrapper.scrollLeft += totalWidth;
+      wrapper.scrollLeft += singleSetWidth;
       requestAnimationFrame(() => (isResetting = false));
     }
   });
