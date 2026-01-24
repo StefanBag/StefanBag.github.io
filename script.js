@@ -14,17 +14,25 @@ if (wrapper && grid) {
   // Width of the original set
   const totalWidth = grid.scrollWidth / 2;
 
-  // Start in the middle for true infinite feel
-  wrapper.scrollLeft = totalWidth / 2;
+  // Start at the seam between original + clone
+  wrapper.scrollLeft = totalWidth;
+
+  let isResetting = false;
 
   wrapper.addEventListener("scroll", () => {
-    // Scroll forward past end → jump back
-    if (wrapper.scrollLeft >= totalWidth) {
+    if (isResetting) return;
+
+    const buffer = 10; // px safety zone
+
+    if (wrapper.scrollLeft >= totalWidth * 2 - buffer) {
+      isResetting = true;
       wrapper.scrollLeft -= totalWidth;
-    }
-    // Scroll backward past start → jump forward
-    else if (wrapper.scrollLeft <= 0) {
+      requestAnimationFrame(() => (isResetting = false));
+    } 
+    else if (wrapper.scrollLeft <= buffer) {
+      isResetting = true;
       wrapper.scrollLeft += totalWidth;
+      requestAnimationFrame(() => (isResetting = false));
     }
   });
 }
