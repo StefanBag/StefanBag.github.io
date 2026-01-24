@@ -23,7 +23,7 @@ if (wrapper && track && !track.dataset.looped) {
   let targetPosition = 0;
 
   const snapSpeed = 0.35;
-  const scrollThreshold = 60;
+  const scrollThreshold = 80;
   let scrollAccumulator = 0;
 
   wrapper.style.overflow = "hidden";
