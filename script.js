@@ -16,20 +16,24 @@ if (wrapper && grid) {
   // Start in the middle set
   wrapper.scrollLeft = setWidth;
   let isJumping = false;
-  const buffer = 10; // REDUCED - prevents hitting browser edges
+  
   wrapper.addEventListener("scroll", () => {
     if (isJumping) return;
+    
+    const scrollPos = wrapper.scrollLeft;
+    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+    
     // Too far LEFT → jump right
-    if (wrapper.scrollLeft <= buffer) {
+    if (scrollPos < setWidth * 0.1) {
       isJumping = true;
-      wrapper.scrollLeft += setWidth;
-      requestAnimationFrame(() => (isJumping = false));
+      wrapper.scrollLeft = scrollPos + setWidth;
+      setTimeout(() => (isJumping = false), 50);
     }
     // Too far RIGHT → jump left
-    else if (wrapper.scrollLeft >= setWidth * 2 - buffer) {
+    else if (scrollPos > setWidth * 1.9) {
       isJumping = true;
-      wrapper.scrollLeft -= setWidth;
-      requestAnimationFrame(() => (isJumping = false));
+      wrapper.scrollLeft = scrollPos - setWidth;
+      setTimeout(() => (isJumping = false), 50);
     }
   });
 }
