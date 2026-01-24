@@ -155,11 +155,11 @@ nav a:hover {
 .projects-grid {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(320px, 360px);
+  grid-auto-columns: minmax(320px, 1fr);
   gap: 2rem;
 
   overflow-x: auto;
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
 
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -176,17 +176,17 @@ nav a:hover {
    Project Card
 ========================= */
 .project-card {
+  scroll-snap-align: start;
+
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-  scroll-snap-align: start;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
 }
 
 .project-image {
