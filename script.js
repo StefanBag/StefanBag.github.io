@@ -1,19 +1,21 @@
 // ================================
 // Infinite Carousel — HARD SNAP PER CARD
-// Horizontal scroll ONLY
+// Arrow-controlled ONLY (no scroll)
 // ================================
 
 const wrapper = document.querySelector(".projects-wrapper");
 const track = document.querySelector(".projects-grid");
+const leftArrow = document.querySelector(".carousel-arrow.left");
+const rightArrow = document.querySelector(".carousel-arrow.right");
 
-if (wrapper && track && !track.dataset.looped) {
+if (wrapper && track && leftArrow && rightArrow && !track.dataset.looped) {
   track.dataset.looped = "true";
 
   const cards = Array.from(track.children);
   const cardWidth = cards[0].offsetWidth + 32; // card + gap
   const cardCount = cards.length;
 
-  // Clone once for looping
+  // Clone cards ONCE for infinite loop
   cards.forEach(card => {
     track.appendChild(card.cloneNode(true));
   });
@@ -22,43 +24,28 @@ if (wrapper && track && !track.dataset.looped) {
   let position = 0;
   let targetPosition = 0;
 
-  const snapSpeed = 0.50;
-  const scrollThreshold = 80;
-  let scrollAccumulator = 0;
+  const snapSpeed = 0.35; // easing strength
 
   wrapper.style.overflow = "hidden";
 
-  wrapper.addEventListener(
-    "wheel",
-    (e) => {
-      // ❌ Ignore vertical scroll completely
-      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+  // ----------------
+  // Arrow controls
+  // ----------------
+  leftArrow.addEventListener("click", () => {
+    index--;
+    if (index < 0) index += cardCount;
+    targetPosition = index * cardWidth;
+  });
 
-      e.preventDefault();
+  rightArrow.addEventListener("click", () => {
+    index++;
+    if (index >= cardCount) index -= cardCount;
+    targetPosition = index * cardWidth;
+  });
 
-      // ✅ Horizontal scroll only
-      scrollAccumulator += e.deltaX;
-
-      // Scroll RIGHT → next card
-      if (scrollAccumulator > scrollThreshold) {
-        index++;
-        scrollAccumulator = 0;
-      }
-      // Scroll LEFT → previous card
-      else if (scrollAccumulator < -scrollThreshold) {
-        index--;
-        scrollAccumulator = 0;
-      }
-
-      // Wrap index
-      if (index >= cardCount) index -= cardCount;
-      if (index < 0) index += cardCount;
-
-      targetPosition = index * cardWidth;
-    },
-    { passive: false }
-  );
-
+  // ----------------
+  // Animation loop
+  // ----------------
   function animate() {
     position += (targetPosition - position) * snapSpeed;
 
