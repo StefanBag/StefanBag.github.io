@@ -1,7 +1,3 @@
-// ================================
-// Infinite Carousel — 1 Card Per Click
-// ================================
-
 const wrapper = document.querySelector(".projects-wrapper");
 const track = document.querySelector(".projects-grid");
 const leftArrow = document.querySelector(".carousel-arrow.left");
@@ -10,6 +6,7 @@ const rightArrow = document.querySelector(".carousel-arrow.right");
 if (wrapper && track && leftArrow && rightArrow) {
 
   let index = 0;
+  let isScrolling = false;
   const cards = Array.from(track.children);
 
   function getCardWidth() {
@@ -20,20 +17,29 @@ if (wrapper && track && leftArrow && rightArrow) {
   }
 
   function update() {
+    if (isScrolling) return;
+
+    isScrolling = true;
+
     const cardWidth = getCardWidth();
     wrapper.scrollTo({
       left: index * cardWidth,
       behavior: "smooth"
     });
+
+    // unlock after animation finishes
+    setTimeout(() => {
+      isScrolling = false;
+    }, 400); // match scroll speed
   }
 
   rightArrow.addEventListener("click", () => {
-    index = (index + 1) % cards.length;  // wraps forward
+    index = (index + 1) % cards.length;
     update();
   });
 
   leftArrow.addEventListener("click", () => {
-    index = (index - 1 + cards.length) % cards.length; // wraps backward
+    index = (index - 1 + cards.length) % cards.length;
     update();
   });
 
