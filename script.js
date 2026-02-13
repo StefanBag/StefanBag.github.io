@@ -1,5 +1,5 @@
 // ================================
-// Carousel — 1 CARD PER CLICK
+// Infinite Carousel — 1 Card Per Click
 // ================================
 
 const wrapper = document.querySelector(".projects-wrapper");
@@ -9,44 +9,33 @@ const rightArrow = document.querySelector(".carousel-arrow.right");
 
 if (wrapper && track && leftArrow && rightArrow) {
 
-  let cards = Array.from(track.children);
   let index = 0;
-  let cardWidth = 0;
+  const cards = Array.from(track.children);
 
-  function calculateCardWidth() {
-    const style = window.getComputedStyle(track);
-    const gap = parseInt(style.gap) || 0;
-    cardWidth = cards[0].offsetWidth + gap;
+  function getCardWidth() {
+    const card = cards[0];
+    const styles = window.getComputedStyle(track);
+    const gap = parseInt(styles.gap) || 0;
+    return card.offsetWidth + gap;
   }
 
   function update() {
+    const cardWidth = getCardWidth();
     wrapper.scrollTo({
       left: index * cardWidth,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   }
 
-  // Recalculate on load
-  calculateCardWidth();
-
-  // Recalculate if window resizes
-  window.addEventListener("resize", () => {
-    calculateCardWidth();
+  rightArrow.addEventListener("click", () => {
+    index = (index + 1) % cards.length;  // wraps forward
     update();
   });
 
   leftArrow.addEventListener("click", () => {
-    if (index > 0) {
-      index--;
-      update();
-    }
+    index = (index - 1 + cards.length) % cards.length; // wraps backward
+    update();
   });
 
-  rightArrow.addEventListener("click", () => {
-    if (index < cards.length - 1) {
-      index++;
-      update();
-    }
-  });
-
+  window.addEventListener("resize", update);
 }
