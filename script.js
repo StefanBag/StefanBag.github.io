@@ -1,5 +1,5 @@
 // ================================
-// Carousel — BIG ARROWS, 1 CARD PER CLICK
+// Carousel — 1 CARD PER CLICK
 // ================================
 
 const wrapper = document.querySelector(".projects-wrapper");
@@ -8,12 +8,16 @@ const leftArrow = document.querySelector(".carousel-arrow.left");
 const rightArrow = document.querySelector(".carousel-arrow.right");
 
 if (wrapper && track && leftArrow && rightArrow) {
-  const cards = Array.from(track.children);
-  const gap = 32; // matches CSS gap: 2rem
-  const cardWidth = cards[0].offsetWidth + gap;
 
+  let cards = Array.from(track.children);
   let index = 0;
-  const maxIndex = cards.length - 1;
+  let cardWidth = 0;
+
+  function calculateCardWidth() {
+    const style = window.getComputedStyle(track);
+    const gap = parseInt(style.gap) || 0;
+    cardWidth = cards[0].offsetWidth + gap;
+  }
 
   function update() {
     wrapper.scrollTo({
@@ -22,13 +26,27 @@ if (wrapper && track && leftArrow && rightArrow) {
     });
   }
 
-  leftArrow.addEventListener("click", () => {
-    index = Math.max(index - 1, 0);
+  // Recalculate on load
+  calculateCardWidth();
+
+  // Recalculate if window resizes
+  window.addEventListener("resize", () => {
+    calculateCardWidth();
     update();
   });
 
-  rightArrow.addEventListener("click", () => {
-    index = Math.min(index + 1, maxIndex);
-    update();
+  leftArrow.addEventListener("click", () => {
+    if (index > 0) {
+      index--;
+      update();
+    }
   });
+
+  rightArrow.addEventListener("click", () => {
+    if (index < cards.length - 1) {
+      index++;
+      update();
+    }
+  });
+
 }
