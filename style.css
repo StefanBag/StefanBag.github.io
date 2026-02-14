@@ -239,13 +239,14 @@ nav a:hover {
   transform: translateY(-50%) scale(1.08);
 }
 
-.carousel-arrow.left {
-  left: 0;
+.carousel-arrow.right {
+  right: -70px;
 }
 
-.carousel-arrow.right {
-  right: 0;
+.carousel-arrow.left {
+  left: -70px;
 }
+
 
 @media (max-width: 768px) {
   .carousel-arrow {
