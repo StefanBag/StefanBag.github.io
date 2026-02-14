@@ -149,12 +149,11 @@ nav a:hover {
 ===================== */
 .carousel-container {
   position: relative;
-  padding: 0 80px;
 }
 
 .projects-wrapper {
   overflow: hidden;
-  max-width: 1116px; /* fits exactly 3 cards */
+  max-width: 1084px; /* fits exactly 3 cards */
   margin: 0 auto;
 }
 
