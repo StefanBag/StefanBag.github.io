@@ -5,22 +5,31 @@ const rightArrow = document.querySelector(".carousel-arrow.right");
 if (track && leftArrow && rightArrow) {
 
   const cards = Array.from(track.children);
-  const step = 372; // 340px card + 32px gap
+  const step = 372; // 340 card + 32 gap
+  const visibleCards = 3;
+
   let index = 0;
+  const maxIndex = cards.length - visibleCards;
 
   function update() {
     track.style.transform = `translateX(-${index * step}px)`;
   }
 
   rightArrow.addEventListener("click", () => {
-    index++;
-    if (index >= cards.length) index = 0;
+    if (index >= maxIndex) {
+      index = 0; // wrap cleanly
+    } else {
+      index++;
+    }
     update();
   });
 
   leftArrow.addEventListener("click", () => {
-    index--;
-    if (index < 0) index = cards.length - 1;
+    if (index <= 0) {
+      index = maxIndex;
+    } else {
+      index--;
+    }
     update();
   });
 
