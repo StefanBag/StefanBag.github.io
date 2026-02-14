@@ -1,13 +1,11 @@
-const wrapper = document.querySelector(".projects-wrapper");
 const track = document.querySelector(".projects-grid");
 const leftArrow = document.querySelector(".carousel-arrow.left");
 const rightArrow = document.querySelector(".carousel-arrow.right");
 
-if (wrapper && track && leftArrow && rightArrow) {
+if (track && leftArrow && rightArrow) {
 
-  let index = 0;
-  let isScrolling = false;
   const cards = Array.from(track.children);
+  let index = 0;
 
   function getCardWidth() {
     const card = cards[0];
@@ -17,29 +15,25 @@ if (wrapper && track && leftArrow && rightArrow) {
   }
 
   function update() {
-    if (isScrolling) return;
-
-    isScrolling = true;
-
     const cardWidth = getCardWidth();
-    wrapper.scrollTo({
-      left: index * cardWidth,
-      behavior: "smooth"
-    });
-
-    // unlock after animation finishes
-    setTimeout(() => {
-      isScrolling = false;
-    }, 400); // match scroll speed
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
   }
 
   rightArrow.addEventListener("click", () => {
-    index = (index + 1) % cards.length;
+    if (index === cards.length - 1) {
+      index = 0; // wrap only at true end
+    } else {
+      index++;
+    }
     update();
   });
 
   leftArrow.addEventListener("click", () => {
-    index = (index - 1 + cards.length) % cards.length;
+    if (index === 0) {
+      index = cards.length - 1;
+    } else {
+      index--;
+    }
     update();
   });
 
