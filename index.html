@@ -3,199 +3,370 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stefan Baggieri | Game Developer/Software Developer</title>
-
-  <meta name="description" content="Fourth-year Honours specialization in Computer Science with a minor in game development." />
+  <title>Stefan Baggieri | Software Developer & Game Developer</title>
+  <meta
+    name="description"
+    content="Stefan Baggieri is a Computer Science student and developer building software, interactive systems, and game experiences."
+  />
   <meta name="robots" content="index, follow" />
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="site-bg"></div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="container">
-      <div class="logo">SB</div>
-      <ul>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#home" class="logo">SB</a>
+
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#professional-projects">Professional Projects</a></li>
+        <li><a href="#game-projects">Game Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Stefan Baggieri</h1>
-      <p class="subtitle">Game Developer/Software Developer</p>
+  <main>
+    <!-- Hero -->
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Software Developer • Game Developer • CS Student</p>
+          <h1>Stefan Baggieri</h1>
+          <p class="hero-subtitle">
+            I build polished software, gameplay systems, and interactive experiences
+            with a focus on clean design, strong problem-solving, and practical development.
+          </p>
 
-      <p>
-        Fourth-year Honours specialization in Computer Science with a minor in game development at Western University.
-        <a>I build engaging experiences through clean systems and creative problem-solving.</a>
-      </p>
-
-      <div class="skills">
-        <span class="skill-tag">C++</span>
-        <span class="skill-tag">C#</span>
-        <span class="skill-tag">Unity</span>
-        <span class="skill-tag">VR Development</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Git</span>
-      </div>
-
-      <div class="cta-buttons">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="projects-section" id="projects">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-
-      <div class="carousel-container">
-
-        <button class="carousel-arrow left">‹</button>
-
-        <div class="projects-wrapper">
-          <div class="projects-grid">
-
-            <!-- Cards -->
-            <div class="project-card">
-              <img src="images/KrazyKitchenImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>Krazy Kitchen</h3>
-                <p>VR cooking game set in an intentionally chaotic kitchen.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">Unity</span>
-                  <span class="tech-tag">C#</span>
-                  <span class="tech-tag">VR</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <img src="images/ZombieGameImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>3D Zombies Game</h3>
-                <p>Round-based survival with perks and upgrades.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">Unity</span>
-                  <span class="tech-tag">C#</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <img src="images/GeoCraftImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>GeoCraft</h3>
-                <p>Educational geography game for kids.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">Game Design</span>
-                  <span class="tech-tag">Education</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Filler -->
-            <div class="project-card">
-              <img src="images/2DPlatformerImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>2d Platformer</h3>
-                <p>Collect all cherries as fast as you can.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">C#</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="project-card">
-              <img src="images/SilksongCloneImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>Silksong Clone</h3>
-                <p>Clear the dungeon.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">C#</span>
-                </div>
-              </div>
-            </div>
-            
-             <div class="project-card">
-              <img src="images/2DTutorialAdventureImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>2D Tutorial Adventure</h3>
-                <p>Explore the city and fix the robots.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">C#</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="project-card">
-              <img src="images/ForHonourCloneImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>For Honour Clone</h3>
-                <p>1v1 fight to the end.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">C#</span>
-                </div>
-              </div>
-            </div>
-            
-              <div class="project-card">
-              <img src="images/ForgottenWorldImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>Forgotten World</h3>
-                <p>Discover and fight your way through the world.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">C#</span>
-                </div>
-              </div>
-            </div>
-            
-             <div class="project-card">
-              <img src="images/RunImage.png" class="project-image" alt="">
-              <div class="project-content">
-                <h3>Run</h3>
-                <p>Horror game. Escape from the maze and the creatures within it.</p>
-                <div class="tech-stack">
-                  <span class="tech-tag">C#</span>
-                </div>
-              </div>
-            </div>
-
+          <div class="hero-buttons">
+            <a href="#professional-projects" class="btn btn-primary">View Professional Work</a>
+            <a href="#game-projects" class="btn btn-secondary">Explore Game Projects</a>
           </div>
         </div>
 
-        <button class="carousel-arrow right">›</button>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <h2>Let's Connect</h2>
-      <p>Interested in collaborating or chatting?</p>
-
-      <div class="contact-links">
-        <div class="contact-item">
-          <a href="mailto:Stefan.Baggieri@gmail.com">📧 Email</a>
-        </div>
-        <div class="contact-item">
-          <a href="https://github.com/StefanBag" target="_blank">💻 GitHub</a>
-        </div>
-        <div class="contact-item">
-          <a href="https://www.linkedin.com/in/stefan-baggieri-9b897826b/" target="_blank">💼 LinkedIn</a>
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="card-label">Currently Focused On</p>
+            <h2>Building projects that balance technical depth with strong user experience.</h2>
+            <div class="hero-stats">
+              <div class="stat">
+                <span class="stat-number">4th</span>
+                <span class="stat-label">Year CS Student</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">Unity</span>
+                <span class="stat-label">Game Development</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">C++</span>
+                <span class="stat-label">Systems + Logic</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Professional Projects -->
+    <section class="section" id="professional-projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Portfolio</p>
+          <h2>Professional Projects</h2>
+          <p class="section-description">
+            A selection of software-focused work that demonstrates problem-solving,
+            system design, and practical development skills beyond game projects.
+          </p>
+        </div>
+
+        <div class="project-grid professional-grid">
+          <article class="project-card featured-card">
+            <div class="project-content">
+              <span class="project-type">Software Project</span>
+              <h3>Hotel Booking System</h3>
+              <p>
+                Object-oriented booking system designed around users, hotels, rooms,
+                and reservation workflows. Built to model real application structure
+                with a focus on maintainable design.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">OOP</span>
+                <span class="tech-tag">System Design</span>
+              </div>
+              <div class="project-links">
+                <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-content">
+              <span class="project-type">Web Project</span>
+              <h3>Developer Portfolio Website</h3>
+              <p>
+                Personal portfolio website designed to present technical work,
+                highlight strengths clearly, and create a more polished professional brand.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://stefanbag.github.io/" target="_blank" rel="noopener noreferrer">Live Site</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-content">
+              <span class="project-type">Algorithm Project</span>
+              <h3>Data Structures & Algorithms Work</h3>
+              <p>
+                Coursework and technical implementations focused on logic, efficiency,
+                and structured problem-solving using core computer science concepts.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Algorithms</span>
+                <span class="tech-tag">Data Structures</span>
+              </div>
+              <div class="project-links">
+                <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Projects -->
+    <section class="section section-alt" id="game-projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Interactive Work</p>
+          <h2>Game Projects</h2>
+          <p class="section-description">
+            A collection of gameplay, design, and systems-driven projects built through
+            Unity development, experimentation, and course work.
+          </p>
+        </div>
+
+        <div class="carousel-container">
+          <button class="carousel-arrow left" aria-label="Previous projects">‹</button>
+
+          <div class="projects-wrapper">
+            <div class="projects-grid">
+              <article class="project-card game-card">
+                <img src="images/KrazyKitchenImage.png" class="project-image" alt="Krazy Kitchen project preview" />
+                <div class="project-content">
+                  <span class="project-type">VR Game</span>
+                  <h3>Krazy Kitchen</h3>
+                  <p>VR cooking game set in an intentionally chaotic kitchen environment.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">VR</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card game-card">
+                <img src="images/ZombieGameImage.png" class="project-image" alt="3D Zombies Game preview" />
+                <div class="project-content">
+                  <span class="project-type">Survival Game</span>
+                  <h3>3D Zombies Game</h3>
+                  <p>Round-based survival game featuring perks, upgrades, and combat progression.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card game-card">
+                <img src="images/GeoCraftImage.png" class="project-image" alt="GeoCraft project preview" />
+                <div class="project-content">
+                  <span class="project-type">Educational Game</span>
+                  <h3>GeoCraft</h3>
+                  <p>Interactive geography game designed to make learning more engaging for kids.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Game Design</span>
+                    <span class="tech-tag">Education</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card game-card">
+                <img src="images/2DPlatformerImage.png" class="project-image" alt="2D Platformer project preview" />
+                <div class="project-content">
+                  <span class="project-type">Platformer</span>
+                  <h3>2D Platformer</h3>
+                  <p>Fast-paced platforming project focused on movement, collection, and level flow.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card game-card">
+                <img src="images/SilksongCloneImage.png" class="project-image" alt="Silksong Clone preview" />
+                <div class="project-content">
+                  <span class="project-type">Combat Game</span>
+                  <h3>Silksong Clone</h3>
+                  <p>Action-focused project centered around dungeon progression and combat encounters.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card game-card">
+                <img src="images/2DTutorialAdventureImage.png" class="project-image" alt="2D Tutorial Adventure preview" />
+                <div class="project-content">
+                  <span class="project-type">Adventure Game</span>
+                  <h3>2D Tutorial Adventure</h3>
+                  <p>Exploration-based project where players navigate a city and repair broken robots.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card game-card">
+                <img src="images/ForHonourCloneImage.png" class="project-image" alt="For Honour Clone preview" />
+                <div class="project-content">
+                  <span class="project-type">Fighting Game</span>
+                  <h3>For Honour Clone</h3>
+                  <p>One-on-one combat experience built around direct confrontation and timing.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card game-card">
+                <img src="images/ForgottenWorldImage.png" class="project-image" alt="Forgotten World preview" />
+                <div class="project-content">
+                  <span class="project-type">Adventure Game</span>
+                  <h3>Forgotten World</h3>
+                  <p>Action-adventure project built around exploration, combat, and progression.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card game-card">
+                <img src="images/RunImage.png" class="project-image" alt="Run horror game preview" />
+                <div class="project-content">
+                  <span class="project-type">Horror Game</span>
+                  <h3>Run</h3>
+                  <p>Horror experience focused on escaping a maze while avoiding creatures within it.</p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <button class="carousel-arrow right" aria-label="Next projects">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Core Strengths</p>
+          <h2>Skills & Tools</h2>
+          <p class="section-description">
+            Technologies and areas I work with across software development,
+            systems thinking, and interactive design.
+          </p>
+        </div>
+
+        <div class="skills-panel">
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">C#</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+          <span class="skill-pill">Unity</span>
+          <span class="skill-pill">VR Development</span>
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">Object-Oriented Programming</span>
+          <span class="skill-pill">Game Systems</span>
+          <span class="skill-pill">Problem Solving</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="section-tag">Contact</p>
+          <h2>Let’s Connect</h2>
+          <p>
+            Interested in working together, collaborating on a project, or just
+            talking about development and design? Reach out below.
+          </p>
+        </div>
+
+        <div class="contact-cards">
+          <a class="contact-card" href="mailto:Stefan.Baggieri@gmail.com">
+            <span class="contact-label">Email</span>
+            <strong>Stefan.Baggieri@gmail.com</strong>
+          </a>
+
+          <a
+            class="contact-card"
+            href="https://github.com/StefanBag"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="contact-label">GitHub</span>
+            <strong>github.com/StefanBag</strong>
+          </a>
+
+          <a
+            class="contact-card"
+            href="https://www.linkedin.com/in/stefan-baggieri-9b897826b/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="contact-label">LinkedIn</span>
+            <strong>stefan-baggieri</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
